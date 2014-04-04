@@ -6,7 +6,7 @@
 ## installation
 
 ```
-npm install
+npm install dust-watcher
 ```
 ## configuration
 

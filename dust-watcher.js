@@ -46,12 +46,13 @@ var dustWatcher = {
                 //console.log("开始监听..");
                 // On file changed
                 this.on('changed', function (filepath) {
-                    console.log(filepath + ' 被更改');
+                    console.log(filepath + ' is modified');
                     fs.readFile(filepath, "utf-8", function (err, data) {
                         if (!err) {
-                            parseDustFile(option, data, getFileName(filepath));
+                            var fileName=path.basename(filepath,".dust");
+                            parseDustFile(option, data, fileName);
                         } else {
-                            console.log("读取有误：" + filepath);
+                            console.log("read error：" + filepath);
                         }
                     });
                 });
@@ -71,10 +72,10 @@ var dustWatcher = {
                     //console.log(filepath + ' was ' + event);
                 });
                 // Get watched files with relative paths
-                for(var path in this.relative()){
-                    console.log("start to watch ["+path+"]");
-                    if(this.relative()[path].length===0){
-                        console.log("the path spell wrong or the path is empty");
+                for(var dir in this.relative()){
+                    console.log("start to watch ["+dir+"]");
+                    if(this.relative()[dir].length===0){
+                        console.log("the dir spell wrong or the dir is empty");
                     }
                 }
                 //console.log(this.relative());
@@ -112,7 +113,7 @@ var parseDustFile = function (option, data, name) {
                 fs.mkdir(option.output);
             }
             //w:如果文件不存在则会被创建
-            var fd = fs.openSync(option.output + "/" + name.substr(0,name.lastIndexOf("."))+".js", "w");
+            var fd = fs.openSync(path.join(option.output,name+".js"),"w");
             fs.writeSync(fd, template, 0, "utf8");
         });
     } else {
@@ -120,15 +121,7 @@ var parseDustFile = function (option, data, name) {
     }
 };
 
-/**
- * 根据文件路径得到文件名称
- * @param filePath
- * @returns {string}
- */
-var getFileName = function (filePath) {
-    var start = filePath.lastIndexOf("\\") + 1;
-    return filePath.substr(start);
-};
+
 
 
 module.exports = dustWatcher;

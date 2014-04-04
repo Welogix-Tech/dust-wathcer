@@ -1,6 +1,6 @@
 #dust-watcher.js
 
-监听指定dust模板所在目录，自动编译dust模板输出到指定的路径
+鐩戝惉dust妯℃澘锛屽苟鑷姩缂栬瘧
 
 #Example
 
@@ -12,4 +12,6 @@ dustWatcher.watch(option, function (succ) {
 
 #Release History
 
-+ 0.0.4 增加路径处理，部分bug处理及完善
++ 0.0.3 浣跨敤path澶勭悊璺緞鐩稿叧鍔熻兘
++ 0.0.4 瀹屽杽path澶勭悊
+

@@ -1,0 +1,1 @@
+(function(){dust.register("circle-check-list-tmpl1",body_0);function body_0(chk,ctx){return chk.write("1111222222222222222dee2222222dd222wwddddddd333eeddd22ddddhhhkkkkggggddd222ddd22dddd22ffhh222");}return body_0;})();

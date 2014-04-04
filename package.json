@@ -1,0 +1,15 @@
+{
+    "name": "dust-watcher",
+    "version": "0.0.3",
+    "private": false,
+    "scripts": {
+        "start": "app.js"
+    },
+    "main": "./dust-watcher.js",
+    "author": "992512186@qq.com",
+    "dependencies": {
+        "dustjs-linkedin": "2.3.1",
+        "gaze":"0.5.1",
+        "async":"0.6.2"
+    }
+}

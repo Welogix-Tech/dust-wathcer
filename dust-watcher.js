@@ -17,6 +17,9 @@ var path = require("path");
 
 
 var dustWatcher = {
+    loadHelper:function(helper){
+        helper(dust);
+    },
     /**
      * options like ：
      var watcherOption = [
@@ -105,6 +108,7 @@ var dustWatcher = {
  */
 var parseDustFile = function (option, data, name) {
     //dust编译模板，参数：模板名称
+
     var template = dust.compile(data, name);
     if (option.output) {
         //判断输出目录是否存在
@@ -117,10 +121,9 @@ var parseDustFile = function (option, data, name) {
             fs.writeSync(fd, template, 0, "utf8");
         });
     } else {
-        sys.print(template);
+        console.log(template);
     }
 };
-
 
 
 

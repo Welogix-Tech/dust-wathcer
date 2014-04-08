@@ -33,4 +33,6 @@ dustWatcher.watch(option, function (succ) {
 
 + 0.0.3 使用path处理路径相关功能
 + 0.0.4 完善path处理
++ 0.0.5 添加helper的loader
+
 
